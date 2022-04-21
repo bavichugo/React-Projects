@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import classes from "./Header.module.css";
 import mealsImage from "../../assets/meals.jpg";
+import HeaderCartButton from "./HeaderCartButton";
 
 const Header = (props) => {
   return (
@@ -8,7 +9,7 @@ const Header = (props) => {
       <header>
         <div className={classes.header}>
           <h1>ReactMeals</h1>
-          <button>Cart</button>
+          <HeaderCartButton />
         </div>
       </header>
       <div className={classes["main-image"]}>
