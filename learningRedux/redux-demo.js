@@ -22,14 +22,19 @@ const counterReducer = (state = { counter: 0 }, action) => {
 
 // Creates a redux store
 const store = redux.createStore(counterReducer);
-
+console.log("Initial state");
 console.log(store.getState());
+console.log("--------------");
 
 const counterSubscriber = () => {
   console.log(store.getState());
 };
 
+// counterSubscriber will be executed whenever a new action is dispatched
 store.subscribe(counterSubscriber);
 
+// Dispatches a increment action that will increment state.counter
 store.dispatch({ type: "increment" });
+
+// Dispatches a decrement action that will decrement state.counter
 store.dispatch({ type: "decrement" });
