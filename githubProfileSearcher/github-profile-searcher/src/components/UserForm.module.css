@@ -8,7 +8,7 @@ form {
 label {
     font-weight: 500;
     font-size:larger;
-    color: #EEFBFB;
+    color: #12232E;
 }
 
 input {
@@ -32,5 +32,4 @@ button {
 button:hover {
     cursor: pointer;
     background-color: #dce3e7;
-    /* padding: 10px 32px; */
 }
