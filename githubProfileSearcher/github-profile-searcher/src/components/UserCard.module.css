@@ -1,0 +1,32 @@
+.userCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userCard img {
+    border-radius: 50px;
+    width: 20rem;
+    height: auto;
+    margin: 1rem;
+}
+
+.userCard h1 {
+    color: black;
+    background-color: #EEFBFB;
+    padding: 1rem 8rem;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin: 1rem;
+    padding: 1rem;
+    width: 25rem;
+    border-radius: 15px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

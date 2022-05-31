@@ -1,14 +1,24 @@
 import Projects from "./Projects";
+import Card from "./UI/Card";
+import styles from "./UserCard.module.css";
 
-const UserCard = () => {
+const UserCard = (props) => {
+  const { username, imageURL, repoList } = props;
+
   return (
-    <div>
-      <img
-        alt="profile"
-        src="https://avatars.githubusercontent.com/u/61711023?v=4"
-      />
-      <h1>Profile Name</h1>
-      <Projects />
+    <div className={styles.userCard}>
+      <img alt="profile" src={imageURL} />
+      <h1>{username}</h1>
+      {repoList.length > 0 && (
+        <Card>
+          <Projects repoList={repoList} />
+        </Card>
+      )}
+      {repoList.length === 0 && (
+        <Card>
+          <p>{`${username} does not have any repos`}</p>
+        </Card>
+      )}
     </div>
   );
 };
