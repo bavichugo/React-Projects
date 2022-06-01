@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { ProjectContext } from "../store/project-context";
+import { ProjectContext } from "../../store/project-context";
 import Projects from "./Projects";
-import Card from "./UI/Card";
+import Card from "../UI/Card";
 import styles from "./UserCard.module.css";
 
 const UserCard = () => {

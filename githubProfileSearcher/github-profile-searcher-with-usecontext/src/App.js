@@ -1,6 +1,6 @@
 import Layout from "./components/UI/Layout";
-import UserCard from "./components/UserCard";
-import UserForm from "./components/UserForm";
+import UserCard from "./components/project/UserCard";
+import UserForm from "./components/project/UserForm";
 
 function App() {
   return (

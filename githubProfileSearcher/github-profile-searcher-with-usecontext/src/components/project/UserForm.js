@@ -1,8 +1,8 @@
 // Form component used to search for a user profile
 
-import { useRef, useEffect, useContext } from "react";
-import { ProjectContext } from "../store/project-context";
-import Card from "./UI/Card";
+import { useRef, useContext } from "react";
+import { ProjectContext } from "../../store/project-context";
+import Card from "../UI/Card";
 import styles from "./UserForm.module.css";
 
 const UserForm = () => {
