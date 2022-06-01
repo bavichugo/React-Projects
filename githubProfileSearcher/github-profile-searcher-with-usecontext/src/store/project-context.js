@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// App "store" that manages multiple states
 export const ProjectContext = React.createContext({
   username: "",
   avatarURL: "",
