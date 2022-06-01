@@ -5,7 +5,7 @@ export const ProjectContext = React.createContext({
   username: "",
   avatarURL: "",
   repoList: [],
-  firstExecution: true,
+  firstExecution: true, // Used to hide the repo list before first search
   setUserInfo: (username, avatarURL, repoList) => {},
 });
 
