@@ -1,0 +1,47 @@
+.modalCard {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 200px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.modalCard button {
+    border-color: transparent;
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    font-size: medium;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.modalCard h1 {
+    padding: 0rem 2rem;
+}
+
+.modalCard button:hover {
+    background-image: linear-gradient(to right, rgb(26, 213, 147) , rgb(61, 222, 166));
+}
+
+.modalCardBackground {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.75);
+}

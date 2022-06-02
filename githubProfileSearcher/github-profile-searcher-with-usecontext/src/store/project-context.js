@@ -6,6 +6,8 @@ export const ProjectContext = React.createContext({
   avatarURL: "",
   repoList: [],
   firstExecution: true, // Used to hide the repo list before first search
+  showErrorModal: false,
+  setShowErrorModal: () => {},
   setUserInfo: (username, avatarURL, repoList) => {},
 });
 
@@ -16,6 +18,7 @@ const ProjectContextProvider = (props) => {
   );
   const [repo_list, setRepoList] = useState([]);
   const [first_execution, setFirstExecution] = useState(true);
+  const [show_error_modal, _setShowErrorModal] = useState(false);
 
   const setUserInfoHandler = (username, avatarURL = "", repoList = []) => {
     setUsername(username);
@@ -29,6 +32,8 @@ const ProjectContextProvider = (props) => {
     avatarURL: avatar_url,
     repoList: repo_list,
     firstExecution: first_execution,
+    showErrorModal: show_error_modal,
+    setShowErrorModal: _setShowErrorModal,
     setUserInfo: setUserInfoHandler,
   };
 
