@@ -3,14 +3,16 @@ import { ProjectContext } from "../../store/project-context";
 import Projects from "./Projects";
 import Card from "../UI/Card";
 import styles from "./UserCard.module.css";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const UserCard = () => {
   const projectCtx = useContext(ProjectContext);
-  const { username, avatarURL, repoList, firstExecution } = projectCtx;
+  const { username, avatarURL, repoList, firstExecution, isLoading } =
+    projectCtx;
 
   return (
     <div className={styles.userCard}>
-      <img alt="profile" src={avatarURL} />
+      {isLoading ? <LoadingSpinner /> : <img alt="profile" src={avatarURL} />}
       <h1>{username}</h1>
       {repoList.length > 0 && (
         <Card>

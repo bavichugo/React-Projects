@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { ProjectContext } from "../../store/project-context";
 import styles from "./Modal.module.css";
 
+// The grey modal background
 const Backdrop = () => {
   return <div className={styles.backdrop} />;
 };

@@ -1,2 +1,2 @@
-1. Add spinner when searching for a user
-
+- Fix css color issue which gets split in half
+- Change useContext with redux

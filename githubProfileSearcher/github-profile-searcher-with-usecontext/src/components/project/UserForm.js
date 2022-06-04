@@ -21,9 +21,11 @@ const UserForm = () => {
       return;
     }
 
+    projectCtx.setIsLoading(true);
     const response = await fetch(`https://api.github.com/users/${username}`);
 
     if (!response.ok || response.status === 404) {
+      projectCtx.setIsLoading(false);
       projectCtx.setShowErrorModal(true);
       setModalErrorMessage(`${username} is not a GitHub user`);
       usernameRef.current.value = "";
@@ -36,12 +38,14 @@ const UserForm = () => {
     const repoResponse = await fetch(repos_url);
 
     if (!repoResponse.ok || repoResponse.status === 404) {
-      console.log("Did not work bro: response.ok === false");
+      projectCtx.setIsLoading(false);
+      console.log("Did not work: response.ok === false");
       return;
     }
 
     const repoData = await repoResponse.json();
     projectCtx.setUserInfo(username_login, avatar_url, repoData);
+    projectCtx.setIsLoading(false);
     usernameRef.current.value = "";
   };
 

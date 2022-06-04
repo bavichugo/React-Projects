@@ -7,8 +7,10 @@ export const ProjectContext = React.createContext({
   repoList: [],
   firstExecution: true, // Used to hide the repo list before first search
   showErrorModal: false,
+  isLoading: false,
   setShowErrorModal: () => {},
   setUserInfo: (username, avatarURL, repoList) => {},
+  setIsLoading: () => {},
 });
 
 const ProjectContextProvider = (props) => {
@@ -19,6 +21,7 @@ const ProjectContextProvider = (props) => {
   const [repo_list, setRepoList] = useState([]);
   const [first_execution, setFirstExecution] = useState(true);
   const [show_error_modal, _setShowErrorModal] = useState(false);
+  const [is_loading, _setIsLoading] = useState(false);
 
   const setUserInfoHandler = (username, avatarURL = "", repoList = []) => {
     setUsername(username);
@@ -33,8 +36,10 @@ const ProjectContextProvider = (props) => {
     repoList: repo_list,
     firstExecution: first_execution,
     showErrorModal: show_error_modal,
+    isLoading: is_loading,
     setShowErrorModal: _setShowErrorModal,
     setUserInfo: setUserInfoHandler,
+    setIsLoading: _setIsLoading,
   };
 
   return (
@@ -45,40 +50,3 @@ const ProjectContextProvider = (props) => {
 };
 
 export default ProjectContextProvider;
-
-// export const ProjectContext = React.createContext({
-//   username: "",
-//   avatarURL: "",
-//   repoList: [],
-//   setUsername: (username) => {},
-//   setAvatarURL: (avatarURL) => {},
-//   setRepoList: (repoList) => {},
-// });
-
-// const ProjectContextProvider = (props) => {
-//   const [uname, setUname] = useState("bavichugo");
-//   const [avatarurl, setAvatarurl] = useState("");
-//   const [repos, setRepos] = useState([]);
-
-//   const usernameHandler = (username) => {
-//     console.log("Inside username handler");
-//     setUname(username);
-//   };
-
-//   const contextValue = {
-//     username: uname,
-//     avatarURL: avatarurl,
-//     repoList: repos,
-//     setUsername: usernameHandler,
-//     setAvatarURL: setAvatarurl,
-//     setRepoList: setRepos,
-//   };
-
-//   return (
-//     <ProjectContext.Provider value={contextValue}>
-//       {props.children}
-//     </ProjectContext.Provider>
-//   );
-// };
-
-// export default ProjectContextProvider;
