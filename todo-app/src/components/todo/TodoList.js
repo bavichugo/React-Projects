@@ -1,15 +1,29 @@
+import { useContext, Fragment } from "react";
+import { TodoContext } from "../../storage/todo-context";
 import Card from "../UI/Card";
 import TodoItem from "./TodoItem";
 import styles from "./TodoList.module.css";
 
-const DUMMY_TODOS = ["wash dishes", "clean house", "code", "workout"];
-
 const TodoList = () => {
-  const todos = DUMMY_TODOS.map((todo) => <TodoItem>todo</TodoItem>);
+  const { todoList } = useContext(TodoContext);
+
+  const displayTodoListCondition = todoList.length > 0;
+
+  const todos = todoList.map((item) => (
+    <TodoItem
+      key={item.id}
+      id={item.id}
+    >{`${item.todo} ${item.date} ${item.id}`}</TodoItem>
+  ));
+
   return (
-    <Card>
-      <ul className={styles["todo-list-style"]}>{todos}</ul>
-    </Card>
+    <Fragment>
+      {displayTodoListCondition && (
+        <Card>
+          <ul className={styles["todo-list-style"]}>{todos}</ul>
+        </Card>
+      )}
+    </Fragment>
   );
 };
 
