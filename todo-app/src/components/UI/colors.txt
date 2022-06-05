@@ -1,0 +1,6 @@
+#0B0C10 - black
+#1F2833 - greyish black
+#C5C6C7 - grey
+#66FCF1 - cyan
+#45A29E - greyish blue
+

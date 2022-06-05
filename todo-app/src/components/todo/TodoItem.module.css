@@ -1,0 +1,10 @@
+.todo-item-style {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: 1rem 0;
+}
+
+.todo-item-style:hover {
+    cursor: pointer;
+}

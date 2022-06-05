@@ -1,0 +1,21 @@
+.form-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.input-form-style {
+    padding: 5px 5px;
+    width: 30rem;
+    font-size: medium;
+    font-family: cursive;
+    border-radius: 5px;
+    border: 2px solid #66FCF1;
+    background-color: transparent;
+    color: white;
+}
+
+.form-style * {
+    margin: 0 1rem;
+}
