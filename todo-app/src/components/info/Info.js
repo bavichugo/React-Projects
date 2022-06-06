@@ -11,8 +11,8 @@ const Info = () => {
       <Card>
         <div className={styles["info-container"]}>
           <h1>Info</h1>
-          <h1>{todoCtx.todosInProgress}</h1>
-          <h1>{todoCtx.totalCompletedTodos}</h1>
+          <h1>{`Todos in progress: ${todoCtx.todosInProgress}`}</h1>
+          <h1>{`Completed todos  : ${todoCtx.totalCompletedTodos}`}</h1>
         </div>
       </Card>
     </div>
