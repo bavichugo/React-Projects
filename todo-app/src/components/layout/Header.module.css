@@ -6,3 +6,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.link-style {
+    color: white;
+}
+
+.link-style:visited {
+    color: white;
+}

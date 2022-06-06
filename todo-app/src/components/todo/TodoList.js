@@ -10,10 +10,7 @@ const TodoList = () => {
   const displayTodoListCondition = todoList.length > 0;
 
   const todos = todoList.map((item) => (
-    <TodoItem
-      key={item.id}
-      id={item.id}
-    >{`${item.todo} ${item.date} ${item.id}`}</TodoItem>
+    <TodoItem key={item.id} id={item.id}>{`${item.todo}`}</TodoItem>
   ));
 
   return (

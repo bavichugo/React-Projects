@@ -11,9 +11,16 @@ const TodoForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    const todoText = todoInputRef.current.value;
+
+    // Todo text validation
+    if (todoText.trim().length === 0) {
+      return;
+    }
+
     const currentDate = getCurrentDate();
     const newTodo = {
-      todo: todoInputRef.current.value,
+      todo: todoText,
       date: currentDate,
       id: todoCtx.id,
     };

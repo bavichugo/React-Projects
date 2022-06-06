@@ -1,10 +1,57 @@
-.todo-item-style {
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px 20px;
-    margin: 1rem 0;
+.todo-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.todo-item-style:hover {
+.todo-item-inner-container:hover {
     cursor: pointer;
+}
+
+.todo-item-inner-container {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: 1rem 1rem 1rem 0;
+    font-size: medium;
+    font-family: cursive;
+}
+
+.complete-button {
+    border-radius: 5px;
+    height: 100%;
+    width: auto;
+    padding: 5px 7px;
+    font-size: medium;
+    font-family: cursive;
+    color: white;
+    border: 2px solid rgb(26, 213, 147);
+    margin-right: 1rem;
+    background-color: transparent;
+}
+
+.complete-button:hover {
+    cursor: pointer;
+    background-color: rgb(26, 213, 147, 0.15);
+}
+
+.remove-button {
+    border-radius: 5px;
+    height: 100%;
+    width: auto;
+    padding: 5px 7px;
+    font-size: medium;
+    font-family: cursive;
+    color: white;
+    border: 2px solid red;
+    background-color: transparent;
+}
+
+.remove-button:hover {
+    cursor: pointer;
+    background-color: rgb(255, 0, 0, 0.15);
 }

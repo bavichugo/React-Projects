@@ -1,18 +1,50 @@
-import { useContext } from "react";
+import { useContext, useState, Fragment } from "react";
 import { TodoContext } from "../../storage/todo-context";
 import styles from "./TodoItem.module.css";
+import Modal from "../UI/Modal";
 
 const TodoItem = (props) => {
-  const todoCtx = useContext(TodoContext);
+  const { removeTodo, setShowTodoModal, showTodoModal } =
+    useContext(TodoContext);
+  const [displayCloseButton, setDisplayCloseButton] = useState(false);
 
   const onClickHandler = () => {
-    todoCtx.removeTodo(props.id);
+    // Open modal with info
+    setShowTodoModal(true);
   };
 
   return (
-    <li className={styles["todo-item-style"]} onClick={onClickHandler}>
-      {props.children}
-    </li>
+    <Fragment>
+      {showTodoModal && <Modal id={props.id} />}
+      <div
+        className={styles["todo-item-container"]}
+        onMouseOver={() => setDisplayCloseButton(true)}
+        onMouseOut={() => setDisplayCloseButton(false)}
+      >
+        <li
+          className={styles["todo-item-inner-container"]}
+          onClick={onClickHandler}
+        >
+          {props.children}
+        </li>
+        {displayCloseButton && (
+          <Fragment>
+            <button
+              className={styles["complete-button"]}
+              onClick={() => removeTodo(props.id)}
+            >
+              Complete
+            </button>
+            <button
+              className={styles["remove-button"]}
+              onClick={() => removeTodo(props.id)}
+            >
+              Remove
+            </button>
+          </Fragment>
+        )}
+      </div>
+    </Fragment>
   );
 };
 
