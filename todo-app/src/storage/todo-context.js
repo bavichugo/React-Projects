@@ -2,12 +2,11 @@ import React, { useState } from "react";
 
 export const TodoContext = React.createContext({
   todoList: [], // {todo: "", date: "mm/dd/year", id: int}
-  id: 0,
+  idCounter: 0, // Holds the id of the next todo
   showTodoModal: false,
   totalCompletedTodos: 0,
   todosInProgress: 0,
-  setId: () => {},
-  setTodoList: () => {},
+  addTodo: (todo, date) => {},
   removeTodo: (id) => {},
   completeTodo: (id) => {},
   setShowTodoModal: () => {},
@@ -15,10 +14,22 @@ export const TodoContext = React.createContext({
 
 const TodoContextProvider = (props) => {
   const [todoList, setTodoList] = useState([]);
-  const [id, setId] = useState(0);
+  const [idCounter, setIdCounter] = useState(0);
   const [showTodoModal, setShowTodoModal] = useState(false);
   const [totalCompletedTodos, setTotalCompletedTodos] = useState(0);
   const [todosInProgress, setTodosInProgress] = useState(0);
+
+  const addTodo = (todo, date) => {
+    const newTodo = {
+      todo: todo,
+      date: date,
+      id: idCounter,
+    };
+
+    setTodoList((prevList) => [...prevList, newTodo]);
+    setTodosInProgress((prevVal) => prevVal + 1);
+    setIdCounter((prevVal) => prevVal + 1);
+  };
 
   const removeTodo = (id) => {
     setTodoList((prevTodoList) =>
@@ -34,12 +45,11 @@ const TodoContextProvider = (props) => {
 
   const todoContextValue = {
     todoList: todoList,
-    id: id,
+    idCounter: idCounter,
     showTodoModal: showTodoModal,
     totalCompletedTodos: totalCompletedTodos,
     todosInProgress: todosInProgress,
-    setId: setId,
-    setTodoList: setTodoList,
+    addTodo: addTodo,
     removeTodo: removeTodo,
     completeTodo: completeTodo,
     setShowTodoModal: setShowTodoModal,

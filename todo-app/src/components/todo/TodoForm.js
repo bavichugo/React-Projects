@@ -19,13 +19,7 @@ const TodoForm = () => {
     }
 
     const currentDate = getCurrentDate();
-    const newTodo = {
-      todo: todoText,
-      date: currentDate,
-      id: todoCtx.id,
-    };
-    todoCtx.setTodoList((prevTodoList) => [...prevTodoList, newTodo]);
-    todoCtx.setId((prevId) => prevId + 1);
+    todoCtx.addTodo(todoText, currentDate);
     todoInputRef.current.value = "";
   };
 

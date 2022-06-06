@@ -4,7 +4,7 @@ import styles from "./TodoItem.module.css";
 import Modal from "../UI/Modal";
 
 const TodoItem = (props) => {
-  const { removeTodo, setShowTodoModal, showTodoModal } =
+  const { removeTodo, completeTodo, setShowTodoModal, showTodoModal } =
     useContext(TodoContext);
   const [displayCloseButton, setDisplayCloseButton] = useState(false);
 
@@ -31,7 +31,7 @@ const TodoItem = (props) => {
           <Fragment>
             <button
               className={styles["complete-button"]}
-              onClick={() => removeTodo(props.id)}
+              onClick={() => completeTodo(props.id)}
             >
               Complete
             </button>
