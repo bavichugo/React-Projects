@@ -7,6 +7,10 @@
     justify-content: center;
 }
 
+.header-container button {
+    margin: 0 1rem;
+}
+
 .link-style {
     color: white;
 }
