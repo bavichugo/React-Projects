@@ -17,6 +17,7 @@ const TodoList = () => {
       }
 
       const data = await response.json();
+      if (!data) return;
       todoCtx.setTodoList(Object.values(data));
 
     }

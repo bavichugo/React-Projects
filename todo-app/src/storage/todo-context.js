@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getCurrentDate } from "../utils/getDate";
+import { removeTodoFromDB } from "../utils/removeTodoFromDB";
 
 export const TodoContext = React.createContext({
   todoList: [], // {todo: "", date: "mm/dd/year", id: int}
@@ -47,9 +48,13 @@ const TodoContextProvider = (props) => {
   };
 
   const removeTodo = (id) => {
-    setTodoList((prevTodoList) =>
-      prevTodoList.filter((item) => item.id !== id)
-    );
+    const newTodoList = todoList.filter((item) => item.id !== id);
+    try {
+      removeTodoFromDB(newTodoList);
+    } catch (err) {
+      console.log(err);
+    }
+    setTodoList(newTodoList);
     setTodosInProgress((prevVal) => prevVal - 1);
   };
 
