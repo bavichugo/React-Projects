@@ -3,7 +3,6 @@ import { TodoContext } from "../../storage/todo-context";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import styles from "./TodoForm.module.css";
-import { getCurrentDate } from "../../utils/getDate";
 
 const TodoForm = () => {
   const todoInputRef = useRef();
@@ -18,8 +17,7 @@ const TodoForm = () => {
       return;
     }
 
-    const currentDate = getCurrentDate();
-    todoCtx.addTodo(todoText, currentDate);
+    todoCtx.addTodo(todoText);
     todoInputRef.current.value = "";
   };
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { getCurrentDate } from "../utils/getDate";
 
 export const TodoContext = React.createContext({
   todoList: [], // {todo: "", date: "mm/dd/year", id: int}
-  idCounter: 0, // Holds the id of the next todo
   showTodoModal: false,
   totalCompletedTodos: 0,
   todosInProgress: 0,
@@ -15,21 +15,35 @@ export const TodoContext = React.createContext({
 
 const TodoContextProvider = (props) => {
   const [todoList, setTodoList] = useState([]);
-  const [idCounter, setIdCounter] = useState(0);
   const [showTodoModal, setShowTodoModal] = useState(false);
   const [totalCompletedTodos, setTotalCompletedTodos] = useState(0);
   const [todosInProgress, setTodosInProgress] = useState(0);
 
-  const addTodo = (todo, date) => {
+  const addTodo = async (todo) => {
     const newTodo = {
       todo: todo,
-      date: date,
-      id: idCounter,
+      date: getCurrentDate(),
+      id: "id" + new Date().getTime(),
     };
+
+    const response = await fetch(
+      "https://todo-app-e79d2-default-rtdb.firebaseio.com/todos.json",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newTodo),
+      }
+    );
+    if (!response.ok) {
+      console.log("Error sending data to server");
+      return;
+    }
 
     setTodoList((prevList) => [...prevList, newTodo]);
     setTodosInProgress((prevVal) => prevVal + 1);
-    setIdCounter((prevVal) => prevVal + 1);
   };
 
   const removeTodo = (id) => {
@@ -46,7 +60,6 @@ const TodoContextProvider = (props) => {
 
   const todoContextValue = {
     todoList: todoList,
-    idCounter: idCounter,
     showTodoModal: showTodoModal,
     totalCompletedTodos: totalCompletedTodos,
     todosInProgress: todosInProgress,
