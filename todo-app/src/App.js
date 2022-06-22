@@ -4,6 +4,7 @@ import Header from "./components/layout/Header";
 import Todo from "./components/todo/Todo";
 import Info from "./components/info/Info";
 import UserProfile from "./components/user/UserProfile";
+import Login from "./components/login/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="todos" element={<Todo />} />
           <Route path="info" element={<Info />} />
           <Route path="user" element={<UserProfile />} />
+          <Route path="login" element={<Login />} />
         </Routes>
       </Router>
     </Fragment>
