@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <div className={styles["header-container"]}>
-      <Button>Login</Button>
+      <Button onClick={() => onClickHandler("login")}>Login</Button>
       <Button onClick={() => onClickHandler("todos")}>Todos</Button>
       <Button onClick={() => onClickHandler("info")}>Info</Button>
       <Button onClick={() => onClickHandler("user")}>User</Button>
