@@ -1,19 +1,13 @@
-import './App.module.css';
-import { useSelector, useDispatch } from "react-redux";
-import { welcomeActions } from "./components/store/welcome-slice";
+import styles from './App.module.css';
+import { useSelector } from "react-redux";
+import WelcomeScreen from './components/welcome-screen/Welcome';
 
 function App() {
   const firstTimePlaying = useSelector(state => state.welcome.firstTimePlaying);
-  const dispatch = useDispatch();
-
-  const toggleHandler = () => {
-    dispatch(welcomeActions.toggleFirstTimePlaying());
-  }
 
   return (
-    <div className="App">
-      {firstTimePlaying && <h1>Welcome</h1>}
-      {firstTimePlaying && <button onClick={toggleHandler} >Toggle welcome</button>}
+    <div className={styles["app"]}>
+      {firstTimePlaying && <WelcomeScreen />}
     </div>
   );
 }
