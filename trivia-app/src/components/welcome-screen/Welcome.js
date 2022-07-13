@@ -1,16 +1,20 @@
-import { useEffect } from "react";
-import { welcomeActions } from "../store/welcome-slice";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
 import Card from "../UI/Card";
 import styles from "./Welcome.module.css";
 
-const WelcomeScreen = () => {
-    const dispatch = useDispatch();
+const WelcomeScreen = ({setFirstTimePlaying}) => {
 
     useEffect(() => {
+      // Local storage check of whether to display first screen or not
+      if (window.localStorage.getItem("firstTimeShowing") === "false") {
+        setFirstTimePlaying(false);
+        return;
+      }
+
+      window.localStorage.setItem("firstTimeShowing", "false");
         const timer = setTimeout(() => {
-          dispatch(welcomeActions.toggleFirstTimePlaying());
-        }, 5000);
+          setFirstTimePlaying(false);
+        }, 1500);
         return () => clearTimeout(timer);
       },[]);
 
