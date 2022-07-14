@@ -2,7 +2,7 @@
 This is just me practicing redux and adding some notes for whenever I use it in the future.
 
 ## Installation
-npm install redux react-redux @reduxjs/toolkit
+```npm install redux react-redux @reduxjs/toolkit```
 
 ## Setting up a store
 1. Create a store folder and set up the store there
